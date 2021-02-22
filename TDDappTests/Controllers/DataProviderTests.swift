@@ -24,6 +24,7 @@ class DataProviderTests: XCTestCase {
         sut.taskManager = TaskManager()
         tableView = controller.tableView
         tableView.dataSource = sut
+        tableView.delegate = sut
     }
 
     override func tearDownWithError() throws {
@@ -37,7 +38,7 @@ class DataProviderTests: XCTestCase {
         XCTAssert(tableView.numberOfSections == 2)
     }
     
-    //MARK: - Zero section
+    //MARK: - Data Source
     
     // кол-во строк в 1 секции
     func testNumberOfRowsInZeroSections(){
@@ -50,7 +51,7 @@ class DataProviderTests: XCTestCase {
     }
     
     // кол-во строк во 2 секции
-    func testNumberOfRowsInFirstSection(){
+    func testNumberOfRowsInOneSection(){
         sut.taskManager?.add(TaskModel(title: "Foo"))
         sut.taskManager?.check(at: 0)
         XCTAssert(tableView.numberOfRows(inSection: 1) == 1)
@@ -111,6 +112,40 @@ class DataProviderTests: XCTestCase {
         
         XCTAssertEqual(cell.task, task)
     }
+    
+    func testCheckTaskChekingInTaskManager(){
+        sut.taskManager?.add(TaskModel(title: "Foo"))
+        tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 0))
+        
+        XCTAssertEqual(sut.taskManager?.tasksCount, 0)
+        XCTAssertEqual(sut.taskManager?.doneTasksCount, 1)
+    }
+    
+    func testUncheckTaskUnchekingInTaskManager(){
+        sut.taskManager?.add(TaskModel(title: "Foo"))
+        sut.taskManager?.check(at: 0)
+        tableView.reloadData()
+        
+        tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 1))
+        
+        XCTAssertEqual(sut.taskManager?.tasksCount, 1)
+        XCTAssertEqual(sut.taskManager?.doneTasksCount, 0)
+    }
+    
+    //MARK: - Delegate
+    
+    //У кнопки удалить в 0 секции название Done?
+    func testTitleForDeliteButtonInZeroSectionIsDone(){
+        let buttonTitle = tableView.delegate?.tableView?(tableView, titleForDeleteConfirmationButtonForRowAt: IndexPath(row: 0, section: 0))
+        XCTAssert(buttonTitle == "Done")
+    }
+    
+    //У кнопки удалить в 1 секции название Undone?
+    func testTitleForDeliteButtonInOneSectionIsDone(){
+        let buttonTitle = tableView.delegate?.tableView?(tableView, titleForDeleteConfirmationButtonForRowAt: IndexPath(row: 0, section: 1))
+        XCTAssert(buttonTitle == "Undone")
+    }
+    
 }
 
 //MARK: - Mock
@@ -135,7 +170,7 @@ extension DataProviderTests{
     class MockTaskCell: TaskCell{
         var task: TaskModel!
         
-        override func configure(with task: TaskModel){
+        override func configure(with task: TaskModel, isDone: Bool = false){
             self.task = task
         }
     }

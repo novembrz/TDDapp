@@ -15,6 +15,8 @@ class DataProvider: NSObject{
     var taskManager: TaskManager?
 }
 
+//MARK: - UITableViewDataSource
+
 extension DataProvider: UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,8 +52,26 @@ extension DataProvider: UITableViewDataSource{
 
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let taskManager = taskManager, let section = Sections(rawValue: indexPath.section) else {fatalError()}
+        
+        switch section{
+        case .todo: taskManager.check(at: indexPath.row)
+        case .done: taskManager.uncheck(at: indexPath.row)
+        }
+        tableView.reloadData()
+    }
 }
 
+//MARK: - UITableViewDelegate
 extension DataProvider: UITableViewDelegate{
     
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        guard let section = Sections(rawValue: indexPath.section) else {fatalError()}
+        switch section{
+        case .todo: return "Done"
+        case .done: return "Undone"
+        }
+    }
 }

@@ -64,6 +64,16 @@ class TaskManagerTests: XCTestCase {
         XCTAssert(sut.doneTasksCount == 1)
     }
     
+    // Действительно ли задача из выполненного попала в массив ту ду (кол-во)
+    func testUncheckTaskChangesCounts(){
+        let task = TaskModel(title: "Foo")
+        sut.add(task)
+        sut.check(at: 0)
+        sut.uncheck(at: 0)
+        XCTAssert(sut.tasksCount == 1)
+        XCTAssert(sut.doneTasksCount == 0)
+    }
+    
     //Проверяем нужную ли задачу мы удаляем по индексу из таск(соответсвие)
     func testCheckedTaskRemovedFromTasks(){
         let task = TaskModel(title: "Foo")

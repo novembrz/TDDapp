@@ -20,13 +20,52 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="61" id="aUy-Pt-FTc" customClass="TaskCell" customModule="TDDapp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="61"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="125" id="aUy-Pt-FTc" customClass="TaskCell" customModule="TDDapp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aUy-Pt-FTc" id="kN8-o9-wHp" customClass="TaskCell" customModule="TDDapp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="LVI-Ui-3Me">
+                                                    <rect key="frame" x="20" y="23" width="374" height="61.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сходить на пары" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uO7-Sc-Sca">
+                                                            <rect key="frame" x="0.0" y="0.0" width="248.5" height="33.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Стремянный переулок, дом 36" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dP1-fd-UKk">
+                                                            <rect key="frame" x="0.0" y="28.5" width="247" height="33"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 ноября 2021" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUD-Hm-SOd">
+                                                    <rect key="frame" x="20" y="96.5" width="374" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rUD-Hm-SOd" firstAttribute="top" secondItem="LVI-Ui-3Me" secondAttribute="bottom" constant="12" id="1du-y4-qh0"/>
+                                                <constraint firstAttribute="trailing" secondItem="rUD-Hm-SOd" secondAttribute="trailing" constant="20" symbolic="YES" id="CJY-jm-iNq"/>
+                                                <constraint firstItem="LVI-Ui-3Me" firstAttribute="top" secondItem="kN8-o9-wHp" secondAttribute="topMargin" constant="12" id="HV4-Sw-MU5"/>
+                                                <constraint firstItem="LVI-Ui-3Me" firstAttribute="leading" secondItem="kN8-o9-wHp" secondAttribute="leadingMargin" id="cOZ-Ad-bmm"/>
+                                                <constraint firstAttribute="bottom" secondItem="rUD-Hm-SOd" secondAttribute="bottom" constant="9" id="d9B-YB-98g"/>
+                                                <constraint firstItem="rUD-Hm-SOd" firstAttribute="leading" secondItem="kN8-o9-wHp" secondAttribute="leading" constant="20" id="fHh-w2-hbX"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LVI-Ui-3Me" secondAttribute="trailing" id="pw2-Rf-HtL"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="rUD-Hm-SOd" id="kIN-Jk-rUI"/>
+                                            <outlet property="locationLabel" destination="dP1-fd-UKk" id="hKY-4F-8Yz"/>
+                                            <outlet property="titleLabel" destination="uO7-Sc-Sca" id="Ljx-Vd-jnA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
