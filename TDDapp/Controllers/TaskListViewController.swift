@@ -7,13 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TaskListViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var dataProvider: DataProvider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
 
