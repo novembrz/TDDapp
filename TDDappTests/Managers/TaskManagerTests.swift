@@ -47,7 +47,7 @@ class TaskManagerTests: XCTestCase {
         XCTAssert(sut.tasksCount == 1)
     }
     
-    // Действительно ли можно вытащить добавленную задачу по нужному индексу (соответсвие)
+    // Действительно ли можно вытащить добавленную задачу по нужному индексу (pullTask соответсвие)
     func testTaskAtIndexIsAddedTask(){
         let task = TaskModel(title: "Foo")
         sut.add(task)
@@ -55,7 +55,7 @@ class TaskManagerTests: XCTestCase {
         XCTAssertEqual(task, pullTask)
     }
     
-    // Действительно ли задача выполнена и добавлена в выполненный массив (кол-во)
+    // Действительно ли задача выполнена и добавлена в выполненный массив (check кол-во)
     func testCheckTaskChangesCounts(){
         let task = TaskModel(title: "Foo")
         sut.add(task)
@@ -64,7 +64,7 @@ class TaskManagerTests: XCTestCase {
         XCTAssert(sut.doneTasksCount == 1)
     }
     
-    // Действительно ли задача из выполненного попала в массив ту ду (кол-во)
+    // Действительно ли задача из выполненного попала в массив ту ду (uncheck кол-во)
     func testUncheckTaskChangesCounts(){
         let task = TaskModel(title: "Foo")
         sut.add(task)
@@ -74,7 +74,7 @@ class TaskManagerTests: XCTestCase {
         XCTAssert(sut.doneTasksCount == 0)
     }
     
-    //Проверяем нужную ли задачу мы удаляем по индексу из таск(соответсвие)
+    //Проверяем нужную ли задачу мы удаляем по индексу из таск(check соответсвие)
     func testCheckedTaskRemovedFromTasks(){
         let task = TaskModel(title: "Foo")
         let task2 = TaskModel(title: "Bar")

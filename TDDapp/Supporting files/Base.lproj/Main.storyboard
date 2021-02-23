@@ -93,6 +93,78 @@
             </objects>
             <point key="canvasLocation" x="69.565217391304358" y="63.616071428571423"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="LKn-ag-BNJ">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="DWo-1N-wdG" customClass="DetailViewController" customModule="TDDapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7dM-rz-0jN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сходить на пары" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SE-Ur-mDn">
+                                <rect key="frame" x="20" y="104" width="374" height="42"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFI-ro-xR9">
+                                <rect key="frame" x="20" y="210" width="374" height="184"/>
+                                <string key="text">В общем, Даш, на пары нужно ходить. В общем, Даш, на пары нужно ходить. В общем, Даш, на пары нужно ходить. В общем, Даш, на пары нужно ходить. В общем, Даш, на пары нужно ходить. В общем, Даш, на пары нужно ходить.  </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 Ноября 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAT-g6-8Yr">
+                                <rect key="frame" x="20" y="154" width="164.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Стремянный переулок, дом 36" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zl-HK-CGp">
+                                <rect key="frame" x="20" y="455.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X3W-ZI-0Ki">
+                                <rect key="frame" x="20" y="492" width="374" height="181"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="X3W-ZI-0Ki" secondAttribute="height" multiplier="335:162" id="qqd-6a-yTU"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hBv-ka-2F5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hBv-ka-2F5" firstAttribute="trailing" secondItem="3zl-HK-CGp" secondAttribute="trailing" constant="20" id="3DS-vF-C93"/>
+                            <constraint firstItem="oAT-g6-8Yr" firstAttribute="leading" secondItem="hBv-ka-2F5" secondAttribute="leading" constant="20" id="LnZ-ug-Q9i"/>
+                            <constraint firstAttribute="trailing" secondItem="jFI-ro-xR9" secondAttribute="trailing" constant="20" id="OmW-Mq-ZVc"/>
+                            <constraint firstItem="X3W-ZI-0Ki" firstAttribute="leading" secondItem="hBv-ka-2F5" secondAttribute="leading" constant="20" id="VDI-KH-ymu"/>
+                            <constraint firstItem="hBv-ka-2F5" firstAttribute="trailing" secondItem="X3W-ZI-0Ki" secondAttribute="trailing" constant="20" id="VDO-b0-kcw"/>
+                            <constraint firstItem="3zl-HK-CGp" firstAttribute="top" secondItem="jFI-ro-xR9" secondAttribute="bottom" constant="61.5" id="YRD-Mt-JSb"/>
+                            <constraint firstItem="oAT-g6-8Yr" firstAttribute="top" secondItem="2SE-Ur-mDn" secondAttribute="bottom" constant="8" symbolic="YES" id="a0j-F4-jkW"/>
+                            <constraint firstItem="2SE-Ur-mDn" firstAttribute="top" secondItem="hBv-ka-2F5" secondAttribute="top" constant="60" id="dib-Ie-GaK"/>
+                            <constraint firstItem="3zl-HK-CGp" firstAttribute="leading" secondItem="hBv-ka-2F5" secondAttribute="leading" constant="20" id="gvg-sJ-z4T"/>
+                            <constraint firstItem="X3W-ZI-0Ki" firstAttribute="top" secondItem="3zl-HK-CGp" secondAttribute="bottom" constant="16" id="hVm-T3-Snr"/>
+                            <constraint firstItem="hBv-ka-2F5" firstAttribute="trailing" secondItem="oAT-g6-8Yr" secondAttribute="trailing" constant="229.5" id="iNq-8j-Xdm"/>
+                            <constraint firstItem="jFI-ro-xR9" firstAttribute="top" secondItem="oAT-g6-8Yr" secondAttribute="bottom" constant="35" id="m7R-rO-7EP"/>
+                            <constraint firstItem="jFI-ro-xR9" firstAttribute="leading" secondItem="hBv-ka-2F5" secondAttribute="leading" constant="20" id="obs-SB-1qv"/>
+                            <constraint firstItem="hBv-ka-2F5" firstAttribute="trailing" secondItem="2SE-Ur-mDn" secondAttribute="trailing" constant="20" id="u5E-06-m0h"/>
+                            <constraint firstItem="2SE-Ur-mDn" firstAttribute="leading" secondItem="hBv-ka-2F5" secondAttribute="leading" constant="20" id="wb8-4c-8uX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="oAT-g6-8Yr" id="rYj-qR-Esz"/>
+                        <outlet property="descriptionLabel" destination="jFI-ro-xR9" id="7bT-Kq-ytX"/>
+                        <outlet property="locationLabel" destination="3zl-HK-CGp" id="IdQ-C0-EYJ"/>
+                        <outlet property="mapView" destination="X3W-ZI-0Ki" id="GcZ-ft-B00"/>
+                        <outlet property="titleLabel" destination="2SE-Ur-mDn" id="bQW-yu-fC5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Duc-vM-5TM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="789.60000000000002" y="63.418290854572717"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

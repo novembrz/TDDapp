@@ -15,7 +15,7 @@ class TaskCell: UITableViewCell {
     
     private var dateFormatter: DateFormatter {
         let df = DateFormatter()
-        df.dateFormat = "dd MMMM yyyy"
+        df.dateFormat = "dddd, dd MMMM yyyy"
         df.locale = Locale(identifier: "ru_RU")
         return df
     }
@@ -25,14 +25,12 @@ class TaskCell: UITableViewCell {
         if isDone == false{
             self.titleLabel.text = task.title
             
+            let date = dateFormatter.string(from: task.date)
+            dateLabel.text = date
+            
             if let location = task.location{
                 let title = location.title
                 locationLabel.text = title
-            }
-            
-            if let date = task.date{
-                let date = dateFormatter.string(from: date)
-                dateLabel.text = date
             }
         } else {
             let attString = NSAttributedString(string: task.title, attributes: [NSAttributedString.Key.strikethroughStyle : NSUnderlineStyle.single.rawValue])

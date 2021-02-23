@@ -9,7 +9,8 @@ import XCTest
 @testable import TDDapp
 
 class TaskTests: XCTestCase {
-
+    
+    //Можно ли синициализировать
     func testInitTaskModelWithTitle(){
         let task = TaskModel(title: "Foo")
         XCTAssertNotNil(task)
@@ -20,6 +21,7 @@ class TaskTests: XCTestCase {
         XCTAssertNotNil(task)
     }
     
+    //проверяем присвоение переменной класса с переменной инициализации
     func testWhenGivenTitleSetsTitle(){
         let task = TaskModel(title: "Foo")
         XCTAssert(task.title == "Foo")

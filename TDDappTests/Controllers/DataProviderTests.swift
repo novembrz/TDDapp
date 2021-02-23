@@ -33,12 +33,12 @@ class DataProviderTests: XCTestCase {
         controller = nil
     }
     
+    //MARK: - Data Source
+    
     // сколько всего секций
     func testNumberOfSectionIsTwo(){
         XCTAssert(tableView.numberOfSections == 2)
     }
-    
-    //MARK: - Data Source
     
     // кол-во строк в 1 секции
     func testNumberOfRowsInZeroSections(){
@@ -113,6 +113,7 @@ class DataProviderTests: XCTestCase {
         XCTAssertEqual(cell.task, task)
     }
     
+    //Действительно ли можно удалить из 0 секции и она попадет в 1
     func testCheckTaskChekingInTaskManager(){
         sut.taskManager?.add(TaskModel(title: "Foo"))
         tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 0))
@@ -121,6 +122,7 @@ class DataProviderTests: XCTestCase {
         XCTAssertEqual(sut.taskManager?.doneTasksCount, 1)
     }
     
+    //Действительно ли можно удалить из 1 секции и она попадет в 0
     func testUncheckTaskUnchekingInTaskManager(){
         sut.taskManager?.add(TaskModel(title: "Foo"))
         sut.taskManager?.check(at: 0)

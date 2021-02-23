@@ -28,10 +28,12 @@ class TaskCellTests: XCTestCase {
         cell = nil
     }
     
+    // Есть ли лейбл в целл
     func testTaskCellHasTitleLabel(){
         XCTAssertNotNil(cell.titleLabel)
     }
     
+    // Добавлен ли лейбл на вью
     func testCellsTitleLableIsContentView(){
         XCTAssertTrue(cell.titleLabel.isDescendant(of: cell.contentView))
     }
@@ -52,6 +54,7 @@ class TaskCellTests: XCTestCase {
         XCTAssertTrue(cell.dateLabel.isDescendant(of: cell.contentView))
     }
     
+    //Присваевается ли названия при вызове configure
     func testConfigureSetsTitle(){
         let task = TaskModel(title: "Foo")
         cell.configure(with: task)
@@ -74,11 +77,12 @@ class TaskCellTests: XCTestCase {
         let df = DateFormatter()
         df.dateFormat = "dd MMMM yyyy"
         df.locale = Locale(identifier: "ru_RU")
-        let date = df.string(from: task.date!)
+        let date = df.string(from: task.date)
         
         XCTAssert(date == cell.dateLabel.text)
     }
     
+    //Зачеркивается ли тайтл при выполнении задания?
     func testSetsAttributeWhenTaskIsDone(){
         let task = TaskModel(title: "Foo")
         cell.configure(with: task, isDone: true)
@@ -86,6 +90,7 @@ class TaskCellTests: XCTestCase {
         XCTAssertEqual(cell.titleLabel.attributedText, attString)
     }
     
+    // Удаляются ли локация и дата при выполнении задания?
     func testLocationAndDateLabelIsNilWhenTaskIsDone(){
         let task = TaskModel(title: "Foo")
         cell.configure(with: task, isDone: true)
@@ -94,6 +99,8 @@ class TaskCellTests: XCTestCase {
         XCTAssertNil(cell.dateLabel)
     }
 }
+
+//MARK: - FakeDataSource
 
 extension TaskCellTests {
     

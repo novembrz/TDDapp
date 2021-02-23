@@ -10,14 +10,14 @@ import Foundation
 struct TaskModel{
     let title: String
     let description: String?
-    let date: Date?
+    let date: Date
     let location: Location?
     
-    init(title: String, description: String? = nil, location: Location? = nil){
+    init(title: String, description: String? = nil, date: Date? = nil, location: Location? = nil){
         self.title = title
         self.description = description
         self.location = location
-        self.date = Date()
+        self.date = date ?? Date()
     }
 }
 

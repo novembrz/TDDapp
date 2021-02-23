@@ -26,6 +26,7 @@ class TaskListViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
+    //База
     func testWhenViewIsLoadedTableViewIsNotNil(){
         XCTAssertNotNil(sut.tableView)
     }
