@@ -73,11 +73,7 @@ class TaskCellTests: XCTestCase {
     func testConfigureSetsDate(){
         let task = TaskModel(title: "Foo")
         cell.configure(with: task)
-        
-        let df = DateFormatter()
-        df.dateFormat = "dd MMMM yyyy"
-        df.locale = Locale(identifier: "ru_RU")
-        let date = df.string(from: task.date)
+        let date = DateFormatter.dateFormatter.string(from: task.date)
         
         XCTAssert(date == cell.dateLabel.text)
     }

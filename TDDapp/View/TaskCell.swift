@@ -13,19 +13,12 @@ class TaskCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    private var dateFormatter: DateFormatter {
-        let df = DateFormatter()
-        df.dateFormat = "dddd, dd MMMM yyyy"
-        df.locale = Locale(identifier: "ru_RU")
-        return df
-    }
-    
     func configure(with task: TaskModel, isDone: Bool = false){
         
         if isDone == false{
             self.titleLabel.text = task.title
             
-            let date = dateFormatter.string(from: task.date)
+            let date = DateFormatter.dateFormatter.string(from: task.date)
             dateLabel.text = date
             
             if let location = task.location{

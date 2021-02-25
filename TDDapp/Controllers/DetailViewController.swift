@@ -18,12 +18,6 @@ class DetailViewController: UIViewController {
     
     var task: TaskModel!
     
-    var dateFormatter: DateFormatter {
-        let df = DateFormatter()
-        df.dateFormat = "dd.MM.yy"
-        return df
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureUI()
@@ -33,7 +27,7 @@ class DetailViewController: UIViewController {
         titleLabel.text = task.title
         descriptionLabel.text = task.description
         locationLabel.text = task.location?.title
-        dateLabel.text = dateFormatter.string(from: task.date)
+        dateLabel.text = DateFormatter.dateFormatter.string(from: task.date)
         
         if let coordinate = task.location?.coordinate{
             let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
